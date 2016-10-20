@@ -1,0 +1,48 @@
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\CustomerInfoWebApp.dll.config
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\CustomerInfoWebApp.dll
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\CustomerInfoWebApp.pdb
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Helpers.dll
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Mvc.dll
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Razor.dll
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Webpages.Deployment.dll
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Webpages.dll
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Webpages.Razor.dll
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Razor.xml
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Webpages.xml
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Webpages.Deployment.xml
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Webpages.Razor.xml
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Helpers.xml
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Mvc.xml
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\obj\Debug\CustomerInfoWebApp.csprojResolveAssemblyReference.cache
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\obj\Debug\CustomerInfoWebApp.dll
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\obj\Debug\CustomerInfoWebApp.pdb
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\EntityFramework.dll
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\EntityFramework.SqlServer.dll
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\EntityFramework.xml
+c:\users\asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\bin\EntityFramework.SqlServer.xml
+C:\Users\Asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\obj\Debug\CustomerInfoWebApp.Migrations.FirstDBAdding.resources
+C:\Users\Asadullah\documents\visual studio 2013\Projects\CustomerInfoWebApp\CustomerInfoWebApp\obj\Debug\CustomerInfoWebApp.csproj.GenerateResource.Cache
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\CustomerInfoWebApp.dll.config
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\CustomerInfoWebApp.dll
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\CustomerInfoWebApp.pdb
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\EntityFramework.dll
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\EntityFramework.SqlServer.dll
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Helpers.dll
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Mvc.dll
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Razor.dll
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Webpages.Deployment.dll
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Webpages.dll
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Webpages.Razor.dll
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\EntityFramework.xml
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\EntityFramework.SqlServer.xml
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Razor.xml
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Webpages.xml
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Webpages.Deployment.xml
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Webpages.Razor.xml
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Helpers.xml
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Mvc.xml
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\obj\Debug\CustomerInfoWebApp.csprojResolveAssemblyReference.cache
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\obj\Debug\CustomerInfoWebApp.Migrations.FirstDBAdding.resources
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\obj\Debug\CustomerInfoWebApp.csproj.GenerateResource.Cache
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\obj\Debug\CustomerInfoWebApp.dll
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\obj\Debug\CustomerInfoWebApp.pdb

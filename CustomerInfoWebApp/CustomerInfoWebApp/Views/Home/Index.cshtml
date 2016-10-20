@@ -1,0 +1,169 @@
+﻿@model CustomerInfoWebApp.Models.Customer
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<form id="formID">
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Customer</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control validate[required] text-input " } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control validate[required,custom[onlyLetterNumber]] text-input" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = " form-control validate[required] text-input" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Postal Code", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PostCode, new { htmlAttributes = new { @class = "form-control validate[required,custom[onlyNumberSp]] text-input" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Telephone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Telephone, new { htmlAttributes = new { @class = "form-control validate[custom[phone]] text-input" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control validate[required,custom[email]] text-input" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Contact Person Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContactPersonName, new { htmlAttributes = new { @class = "form-control validate[required,custom[onlyLetterNumber]] text-input" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Contact Person Position", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(x => x.ContactPersonPositionId, (SelectList)ViewBag.ListOfDesig, "Select type...", new { @class = "form-control validate[required]" })
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Region", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(x => x.RegionId, (SelectList)ViewBag.ListOfRegion, "Select type...", new { @class = "form-control validate[required]" })
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Catagory", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(x => x.CategoryId, (SelectList)ViewBag.ListOfCat, "Select type...", new { @class = "form-control validate[required]" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" id="New" value="New" class="btn btn-primary new" />
+                <input type="button" id="Delete" value="Delete" class="btn btn-primary" />
+                <input type="button" id="Preview" value="Preview" class="btn btn-primary" />
+                <input type="button" id="Exit" onclick="myFunction()" value="Exit" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+        @Html.Hidden("RedirectTo", Url.Action("Index", "Home"));
+
+    </div>
+
+<script src="~/Scripts/RegistrationScripts/jquery.validationEngine-en.js"></script>
+
+<script src="~/Scripts/RegistrationScripts/jquery.validationEngine.js"></script>
+
+@*<script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+<script src="~/Scripts/RegistrationScripts/RgEvents.js"></script>
+
+<script>
+    
+    //$(document).ready(function () {
+
+    //    $("#Exit").click(function () {
+            
+    //        $('<div></div>').appendTo('body')
+    //            .html('<div><h6>Are you sure?</h6></div>')
+    //            .dialog({
+    //                modal: true,
+    //                title: 'Delete message',
+    //                zIndex: 10000,
+    //                autoOpen: true,
+    //                width: 'auto',
+    //                resizable: false,
+    //                buttons: {
+    //                    Yes: function () {
+    //                        // $(obj).removeAttr('onclick');                                
+    //                        // $(obj).parents('.Parent').remove();
+
+    //                        $(this).dialog("close");
+    //                    },
+    //                    No: function () {
+    //                        $(this).dialog("close");
+    //                    }
+    //                },
+    //                close: function (event, ui) {
+    //                    $(this).remove();
+    //                }
+    //            });
+
+    //    });
+
+
+
+
+    //});
+
+    function myFunction() {
+        confirm('Are you sure you want to Exit?');
+    }
+</script>
+<script>
+    jQuery(document).ready(function () {
+        // binds form submission and fields to the validation engine
+        jQuery("#formID").validationEngine();
+    });
+</script>
+
+
+
+
+
