@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,16 +11,15 @@ namespace CustomerInfoWebApp.Controllers
 {
     public class HomeController : Controller
     {
-        CustomerContext db=new CustomerContext();
+        CustomerContext db = new CustomerContext();
         // GET: Home
         public ActionResult Index()
         {
             //Designation dropdownlist
-            Designation aDesignation=new Designation();
+            Designation aDesignation = new Designation();
             var designationList = db.Designations.ToList();
             aDesignation.DesignaionList = new SelectList(designationList, "Id", "DesigName");
             ViewBag.ListOfDesig = aDesignation.DesignaionList;
-
 
             //Region Dropdownlist
             Region aRegion = new Region();
@@ -28,24 +28,29 @@ namespace CustomerInfoWebApp.Controllers
             ViewBag.ListOfRegion = aRegion.RegionList;
 
             //Category Dropdownlist
-            Category aCategory= new Category();
+            Category aCategory = new Category();
             var categoryList = db.Categories.ToList();
             aCategory.CategoryList = new SelectList(categoryList, "Id", "CatName");
             ViewBag.ListOfCat = aCategory.CategoryList;
-
-
 
             return View();
         }
 
         //Jason Insertion
-        public ActionResult SaveUser(string code, string name, string address, int postCode, string telephone, string email, string contactPersonName, int contactPersonPositionId, int regionId, int categoryId)
+        public ActionResult SaveUser(string code, string name, string address, int postCode, string telephone,
+            string email, string contactPersonName, int contactPersonPositionId, int regionId, int categoryId)
         {
             if (ModelState.IsValid)
             {
-                Customer aCustomer= new Customer();
+                Customer aCustomer = new Customer();
+                aCustomer = db.Customers.FirstOrDefault(x => x.Code == code);
+                if (aCustomer == null)
+                    {
+                        aCustomer.Code = code;
+                       
+                    }
+               
 
-                aCustomer.Code = code;
                 aCustomer.Name = name;
                 aCustomer.Address = address;
                 aCustomer.PostCode = postCode;
@@ -55,9 +60,7 @@ namespace CustomerInfoWebApp.Controllers
                 aCustomer.ContactPersonPositionId = contactPersonPositionId;
                 aCustomer.CategoryId = categoryId;
                 aCustomer.RegionId = regionId;
-
-
-                db.Customers.Add(aCustomer);
+                db.Customers.AddOrUpdate(aCustomer);
                 db.SaveChanges();
                 //ViewBag.Message = "Successfully Added.";
                 return RedirectToAction("Index", "Home");
@@ -65,8 +68,20 @@ namespace CustomerInfoWebApp.Controllers
             }
 
             return RedirectToAction("Index");
- 
+
         }
 
+        //Get by Id
+        public JsonResult GetUserByCode(string code)
+        {
+            Customer aCustomer = new Customer();
+
+            if (code != null)
+            {
+                aCustomer = db.Customers.FirstOrDefault(x => x.Code == code);
+
+            }
+            return Json(aCustomer, JsonRequestBehavior.AllowGet);
+        }
     }
 }
