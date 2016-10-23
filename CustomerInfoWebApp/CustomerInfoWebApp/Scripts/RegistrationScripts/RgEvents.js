@@ -119,15 +119,15 @@ $(document).ready(function () {
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify(jsonData),
             success: function () {
-                $("#Name").empty();
-                $("#Address").empty();
-                $("#Email").empty();
-                $("#PostCode").empty();
-                $("#Telephone").empty();
-                $("#ContactPersonName").empty();
-                $("#ContactPersonPositionId").empty();
-                $("#RegionId").empty();
-                $("#CategoryId").empty();
+                $("#Name").val("");
+                $("#Address").val("");
+                $("#Email").val("");
+                $("#PostCode").val("");
+                $("#Telephone").val("");
+                $("#ContactPersonName").val("");
+                $("#ContactPersonPositionId").val("");
+                $("#RegionId").val("");
+                $("#CategoryId").val("");
                 $(".new").val("Save");
                 isSaveButton = true;
                 isUpdate = false;
@@ -141,12 +141,54 @@ $(document).ready(function () {
     });
 
     //Preview action
-    //$("#Preview").click(function () {
+    $("#Preview").click(function () {
+        $('#myModal').modal({
+            show: 'false'
+        });
+    });
 
-    //    $('#myModal').modal({
-    //        show: 'false'
-    //    });
-    //});
 
+    //Filter User Data
+    $("#Show").click(function () {
+        //Get Selected User Id
+        var rId = $("#rId").val();
+        var catId = $("#catId").val();
+
+        if ($("#selectCP").is(':checked')) {
+            // Code in the case checkbox is checked.
+            rId = null;
+        }
+
+        if ($("#selectC").is(':checked')) {
+            // Code in the case checkbox is checked.
+            catId = null;
+        }
+
+
+        var jsonData1 = { rId: rId, catId: catId };
+
+        $.ajax({
+            type: "POST",
+            url: "../Home/GetUserFiltered",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(jsonData1),
+            success: function (data) {
+                
+                //$("#providersFormElementsTable").html("<tr><td>Nickname</td><td><input type='text' id='nickname' name='nickname'></td></tr><tr><td>CA Number</td><td><input type='text' id='account' name='account'></td></tr>");
+                var tableMarkup = "<thead><tr><th>Code</th><th>Name</th></tr></thead>";
+                tableMarkup += "<tbody>";
+                $.each(data, function (i, val) {
+                    tableMarkup += "<tr><td>" + val.Code + "</td><td>" + val.Name + "</td></tr>";
+                });
+                tableMarkup += "</tbody>";
+                $("#tblOrderList").html(tableMarkup);
+            },
+            error: function (err) {
+                var v = err;
+            }
+        });
+
+    });
+    //
     
 });

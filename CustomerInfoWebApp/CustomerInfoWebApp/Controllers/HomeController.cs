@@ -45,23 +45,37 @@ namespace CustomerInfoWebApp.Controllers
                 Customer aCustomer = new Customer();
                 aCustomer = db.Customers.FirstOrDefault(x => x.Code == code);
                 if (aCustomer == null)
-                    {
-                        aCustomer.Code = code;
-                       
-                    }
-               
+                {
+                    Customer eCustomer = new Customer();
+                    eCustomer.Code = code;
+                    eCustomer.Name = name;
+                    eCustomer.Address = address;
+                    eCustomer.PostCode = postCode;
+                    eCustomer.Telephone = telephone;
+                    eCustomer.Email = email;
+                    eCustomer.ContactPersonName = contactPersonName;
+                    eCustomer.ContactPersonPositionId = contactPersonPositionId;
+                    eCustomer.CategoryId = categoryId;
+                    eCustomer.RegionId = regionId;
+                    db.Customers.Add(eCustomer);
+                    db.SaveChanges();
 
-                aCustomer.Name = name;
-                aCustomer.Address = address;
-                aCustomer.PostCode = postCode;
-                aCustomer.Telephone = telephone;
-                aCustomer.Email = email;
-                aCustomer.ContactPersonName = contactPersonName;
-                aCustomer.ContactPersonPositionId = contactPersonPositionId;
-                aCustomer.CategoryId = categoryId;
-                aCustomer.RegionId = regionId;
-                db.Customers.AddOrUpdate(aCustomer);
-                db.SaveChanges();
+                }
+                else
+                {
+                    //aCustomer.Code = code;
+                    aCustomer.Name = name;
+                    aCustomer.Address = address;
+                    aCustomer.PostCode = postCode;
+                    aCustomer.Telephone = telephone;
+                    aCustomer.Email = email;
+                    aCustomer.ContactPersonName = contactPersonName;
+                    aCustomer.ContactPersonPositionId = contactPersonPositionId;
+                    aCustomer.CategoryId = categoryId;
+                    aCustomer.RegionId = regionId;
+                    db.Customers.AddOrUpdate(aCustomer);
+                    db.SaveChanges();
+                }
                 //ViewBag.Message = "Successfully Added.";
                 return RedirectToAction("Index", "Home");
 
@@ -89,7 +103,7 @@ namespace CustomerInfoWebApp.Controllers
         {
             Customer aCustomer = new Customer();
 
-            if (code != null)
+            if (code != "")
             {
                 aCustomer = db.Customers.FirstOrDefault(x => x.Code == code);
                 db.Customers.Remove(aCustomer);
@@ -97,6 +111,40 @@ namespace CustomerInfoWebApp.Controllers
 
             }
             return Json(aCustomer, JsonRequestBehavior.AllowGet);
+        }
+
+        //Filter by 
+        public JsonResult GetUserFiltered(int? rId, int? catId)
+        {
+            if (rId != null && catId != null)
+            {
+                var listCustomers = (from c in db.Customers
+                                     where c.RegionId == rId && c.CategoryId == catId
+                                     select new { c.Code, c.Name }).ToList();
+                return Json(listCustomers, JsonRequestBehavior.AllowGet);
+            }
+            else if (rId!=null && catId==null)
+            {
+                var listCustomers = (from c in db.Customers
+                                     where c.RegionId == rId 
+                                     select new { c.Code, c.Name }).ToList();
+                return Json(listCustomers, JsonRequestBehavior.AllowGet);
+
+            }
+            else if (rId == null && catId != null)
+            {
+                var listCustomers = (from c in db.Customers
+                                     where c.CategoryId == catId
+                                     select new { c.Code, c.Name }).ToList();
+                return Json(listCustomers, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                var listCustomers = (from c in db.Customers 
+                                     select new { c.Code, c.Name }).ToList();
+                return Json(listCustomers, JsonRequestBehavior.AllowGet);
+
+            }
         }
 
         //
