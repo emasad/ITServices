@@ -83,5 +83,22 @@ namespace CustomerInfoWebApp.Controllers
             }
             return Json(aCustomer, JsonRequestBehavior.AllowGet);
         }
+
+        //Delete by code
+        public JsonResult DeleteByCode(string code)
+        {
+            Customer aCustomer = new Customer();
+
+            if (code != null)
+            {
+                aCustomer = db.Customers.FirstOrDefault(x => x.Code == code);
+                db.Customers.Remove(aCustomer);
+                db.SaveChanges();
+
+            }
+            return Json(aCustomer, JsonRequestBehavior.AllowGet);
+        }
+
+        //
     }
 }

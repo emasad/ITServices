@@ -19,6 +19,11 @@ $(document).ready(function () {
             if ($("#formID").validationEngine('validate')) {
                // alert("Are you sure.");
                 //save informationData
+                if (isUpdate) {
+                    confirm('Are you sure you want to update?');
+
+                }
+
                 var code = $('#Code').val();
                 var name = $('#Name').val();
                 var address = $('#Address').val();
@@ -68,7 +73,6 @@ $(document).ready(function () {
     $("#Code").focusout(function () {
         //Get Selected User Id
         if (isSaveButton) {
-            confirm('Are you sure you want to submit?');
             var code = $("#Code").val();
             var jsonData = { code: code };
             $.ajax({
@@ -102,4 +106,47 @@ $(document).ready(function () {
             return;
         }
     });
+
+
+    //delete action
+    $("#Delete").click(function () {
+        confirm('Are you sure you want to submit?');
+        var code = $("#Code").val();
+        var jsonData = { code: code };
+        $.ajax({
+            type: "POST",
+            url: "../Home/DeleteByCode",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(jsonData),
+            success: function () {
+                $("#Name").empty();
+                $("#Address").empty();
+                $("#Email").empty();
+                $("#PostCode").empty();
+                $("#Telephone").empty();
+                $("#ContactPersonName").empty();
+                $("#ContactPersonPositionId").empty();
+                $("#RegionId").empty();
+                $("#CategoryId").empty();
+                $(".new").val("Save");
+                isSaveButton = true;
+                isUpdate = false;
+                $("#Delete").prop("disabled", true);
+                $("#Preview").prop("disabled", true);
+            },
+            error: function (data) {
+                alert('request failed');
+            }
+        });
+    });
+
+    //Preview action
+    //$("#Preview").click(function () {
+
+    //    $('#myModal').modal({
+    //        show: 'false'
+    //    });
+    //});
+
+    
 });
