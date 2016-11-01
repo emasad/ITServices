@@ -7,13 +7,13 @@ namespace CustomerInfoWebApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class FirstDBAdding : IMigrationMetadata
+    public sealed partial class DBCreatedNewly : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(FirstDBAdding));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(DBCreatedNewly));
         
         string IMigrationMetadata.Id
         {
-            get { return "201610191609100_FirstDBAdding"; }
+            get { return "201610310611546_DBCreatedNewly"; }
         }
         
         string IMigrationMetadata.Source

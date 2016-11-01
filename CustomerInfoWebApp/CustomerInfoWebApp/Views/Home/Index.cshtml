@@ -146,8 +146,8 @@
             </div>
             <div class="modal-footer">
                 <button id="Show" type="button" class="btn btn-primary">Show</button>
-                <button type="button" class="btn btn-primary">Print</button>
-                
+                @*<button id="Print" type="button" class="btn btn-primary">Print</button>*@
+                <input type="button" value="Print" class="btn btn-primary" onclick="location.href='@Url.Action("Export", "Home")'" />
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
             </div>
         </div><!-- /.modal-content -->

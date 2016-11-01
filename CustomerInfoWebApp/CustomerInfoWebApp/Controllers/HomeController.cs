@@ -6,6 +6,9 @@ using System.Web;
 using System.Web.Mvc;
 using CustomerInfoWebApp.Context;
 using CustomerInfoWebApp.Models;
+using CrystalDecisions.CrystalReports.Engine;
+using System.IO;
+using CustomerInfoWebApp.ViewModel;
 
 namespace CustomerInfoWebApp.Controllers
 {
@@ -114,8 +117,13 @@ namespace CustomerInfoWebApp.Controllers
         }
 
         //Filter by 
+              
+        //List<CustomerVM> customerList = new List<CustomerVM>();
         public JsonResult GetUserFiltered(int? rId, int? catId)
         {
+
+            Session["regionId"] = rId;
+            Session["categoryId"] = catId;
             if (rId != null && catId != null)
             {
                 var listCustomers = (from c in db.Customers
@@ -128,6 +136,7 @@ namespace CustomerInfoWebApp.Controllers
                 var listCustomers = (from c in db.Customers
                                      where c.RegionId == rId 
                                      select new { c.Code, c.Name }).ToList();
+
                 return Json(listCustomers, JsonRequestBehavior.AllowGet);
 
             }
@@ -136,17 +145,84 @@ namespace CustomerInfoWebApp.Controllers
                 var listCustomers = (from c in db.Customers
                                      where c.CategoryId == catId
                                      select new { c.Code, c.Name }).ToList();
+
                 return Json(listCustomers, JsonRequestBehavior.AllowGet);
             }
             else
             {
                 var listCustomers = (from c in db.Customers 
                                      select new { c.Code, c.Name }).ToList();
+                
                 return Json(listCustomers, JsonRequestBehavior.AllowGet);
 
             }
+
         }
 
+        //Print Customer list
+        public FileResult Export()
+        {
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/Reports/CustomerCrystalReport.rpt")));
+
+            int? rId=Convert.ToInt32(Session["regionId"]);
+            int? catId= Convert.ToInt32(Session["categoryId"]);
+            //
+            if (rId != 0 && catId != 0)
+            {
+                rd.SetDataSource(db.Customers.Where(p => p.RegionId == rId && p.CategoryId == catId).Select(p => new
+                {
+                    Code = p.Code,
+                    Name = p.Name
+
+                }).ToList());
+
+            }
+            else if (rId != 0 && catId == 0)
+            {
+                
+                rd.SetDataSource(db.Customers.Where(p => p.RegionId == rId).Select(p => new
+                {
+                    Code = p.Code,
+                    Name = p.Name
+
+                }).ToList());
+
+            }
+            else if (rId == 0 && catId != 0)
+            {               
+
+                rd.SetDataSource(db.Customers.Where(p=>p.CategoryId==catId).Select(p => new
+                {
+                    Code = p.Code,
+                    Name = p.Name
+
+                }).ToList());
+
+            }
+            else
+            {                
+                rd.SetDataSource(db.Customers.Select(p => new
+                {
+                    Code = p.Code,
+                    Name = p.Name
+
+                }).ToList());
+
+            }
+
+
+            //
+                        
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+            stream.Seek(0, SeekOrigin.Begin);
+
+            return File(stream, "application/pdf", "CustomerList.pdf");
+        }
         //
+
     }
 }

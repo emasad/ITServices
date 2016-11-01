@@ -42,7 +42,7 @@ I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Webp
 I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Helpers.xml
 I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\bin\System.Web.Mvc.xml
 I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\obj\Debug\CustomerInfoWebApp.csprojResolveAssemblyReference.cache
-I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\obj\Debug\CustomerInfoWebApp.Migrations.FirstDBAdding.resources
-I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\obj\Debug\CustomerInfoWebApp.csproj.GenerateResource.Cache
 I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\obj\Debug\CustomerInfoWebApp.dll
 I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\obj\Debug\CustomerInfoWebApp.pdb
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\obj\Debug\CustomerInfoWebApp.Migrations.DBCreatedNewly.resources
+I:\PROJECTS\ITServices\CustomerInfoWebApp\CustomerInfoWebApp\obj\Debug\CustomerInfoWebApp.csproj.GenerateResource.Cache

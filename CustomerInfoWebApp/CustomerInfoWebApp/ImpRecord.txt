@@ -1,0 +1,30 @@
+//Insert Region
+
+INSERT INTO Regions (RegionName) VALUES ('Dhaka');
+INSERT INTO Regions (RegionName) VALUES ('Khulna');
+INSERT INTO Regions (RegionName) VALUES ('Rajshahi');
+INSERT INTO Regions (RegionName) VALUES ('Barishal');
+INSERT INTO Regions (RegionName) VALUES ('Shylet');
+INSERT INTO Regions (RegionName) VALUES ('Chittagong');
+INSERT INTO Regions (RegionName) VALUES ('Rangpur');
+INSERT INTO Regions (RegionName) VALUES ('Mymenshing');
+
+
+//Insert Designation
+INSERT INTO Designations (DesigName) VALUES ('Associate');
+INSERT INTO Designations (DesigName) VALUES ('Software Engineer');
+INSERT INTO Designations (DesigName) VALUES ('Senior Software Engineer');
+INSERT INTO Designations (DesigName) VALUES ('Team Lead');
+INSERT INTO Designations (DesigName) VALUES ('Project Lead');
+INSERT INTO Designations (DesigName) VALUES ('Senior PM');
+INSERT INTO Designations (DesigName) VALUES ('Associate Director');
+INSERT INTO Designations (DesigName) VALUES ('Director');
+INSERT INTO Designations (DesigName) VALUES ('Associate Vice President');
+INSERT INTO Designations (DesigName) VALUES ('Vice-President');
+INSERT INTO Designations (DesigName) VALUES ('Chief Executive Officer');
+
+
+//Insert Categories of servies
+INSERT INTO Categories (CatName) VALUES ('Software Development');
+INSERT INTO Categories (CatName) VALUES ('Software Maintenance');
+INSERT INTO Categories (CatName) VALUES ('Software Support');
