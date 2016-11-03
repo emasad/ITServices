@@ -16,3 +16,5 @@ Code|Name| Address|PostCode|Region|Telephone|Email|Contact Person Name|Contact P
 5.	If user change any data and click on Update button the system will ask for confirmation. If confirmed then the record will be updated with new data.<br/ >
 6.	If user click on delete it will ask for confirmation. If confirm then customer record will be deleted. Delete button again disabled.<br/ >
 7.	After click in Preview button the system will pop up having (i) a list of all region in a combo box and a check box beside it and (ii) a list of all category in a combo box and a check box beside it. It will also have three button named “Show”, “Print” and “Cancel”. If user select a region the list will be filtered. If check boxed is checked then no filter applied.<br/ >
+
+<strong>Project Live link</strong>: <a href="http://cseasad-001-site1.gtempurl.com/" target="_blank">http://cseasad-001-site1.gtempurl.com/</a>
